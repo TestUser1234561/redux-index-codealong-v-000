@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 
-class Todo extends Component {
+class Todos extends Component {
 
   render() {
+
+    const todos = this.props.store.getState().todos.map((todo, index) => {
+      return <li key={index}>{todo.text}</li>
+    });
+
     return(
-      <div>
-        Our Todo
-      </div>
+      <ul>
+        {todos}
+      </ul>
     );
   }
 };
 
-export default Todo;
+export default Todos;
